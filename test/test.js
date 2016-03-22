@@ -11,12 +11,14 @@ describe('subtract', function () {
 });
 
 describe('updateAppState', function () {
-    it('should push a new state into the browser history', function () {
-        window.updateAppState({
-            message: 'hi'
+    for (var i=0; i<300; i++) {
+        it('should push a new state into the browser history ' + i, function () {
+            window.updateAppState({
+                message: 'hi'
+            });
+            expect(window.history.state).toEqual({
+                message: 'hi'
+            })
         });
-        expect(window.history.state).toEqual({
-            message: 'hi'
-        })
-    });
+    }
 });
